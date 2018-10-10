@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import User
+
 
 def index(request):
-     context = {'this_is': 'latest_question_list'}
-     return render(request, 'myApp/myhtml.html', context)
+    webpages_list = User.objects.all()
+    date_dict ={'access_record': webpages_list}
+    return render(request, 'myApp/myhtml.html', context=date_dict)

@@ -1,14 +1,40 @@
 <!DOCTYPE html>
-{% load static %}
+{% load staticfiles %}
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-  </head>
-  <body>
-    <h1>Suck</h1>
-    <img src="{% static "images/dog.jpg" %}" alt="My image">
-    {{this_is}}
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Level Two assesment </title>
+  <link rel="stylesheet" href="/static/css/blog.css" />
+
+</head>
+
+<body>
+  <h1>This is assesment I am doing for learning something new :D </h1>
+
+  <div class="fuck">
+    {% if access_records %}
+    <h1>This is a User list With name and email address</h1>
+    <h2>User List:</h2>
+    <ul>
+      <li>Coffee</li>
+      <li>Tea</li>
+      <li>Milk</li>
+    </ul>
+    {% for acc in access_record %}
+      <h3>int(acc) User Info:</h3>
+
+        <p>First Name:{{acc.first_name}}</p>
+        <p>Last Name: {{acc.last_name}}</p>
+        <p>Email: {{acc.email}}</p>
+
+      {% endfor %}
+
+      {% else %}
+    <p>NO ACCESS RECORDS FOUND! </p>
+    {% endif %}
+  </div>
+
+</body>
+
 </html>
